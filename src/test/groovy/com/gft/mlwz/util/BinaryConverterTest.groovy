@@ -14,14 +14,9 @@ class BinaryConverterTest extends Specification {
 
     def "should convert int to binary value"() {
         expect:
-            underTest.convertInt(0) == "0"
-            underTest.convertInt(1) == "1"
-            underTest.convertInt(2) == "10"
-            underTest.convertInt(3) == "11"
-            underTest.convertInt(4) == "100"
-            underTest.convertInt(5) == "101"
-            underTest.convertInt(6) == "110"
-            underTest.convertInt(7) == "111"
-            underTest.convertInt(8) == "1000"
+            underTest.convertInt(i) == b
+        where:
+            i << [0, 1, 2, 3, 4, 5, 6, 7, 8]
+            b << ["0", "1", "10", "11", "100", "101", "110", "111", "1000"]
     }
 }
